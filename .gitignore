@@ -1,0 +1,54 @@
+frequence_values = {
+    "Todos os dias": 1.0,
+    "Quase sempre": 0.8,
+    "Três vezes ou menos": 0.6,
+    "Quando me sinto triste": 0.8,
+    "Quando quero ser criativo (a)": 0.4,
+    "Escrevo para guardar uma memória": 0.8,
+    "Quando quero desabafar": 1.0,
+    "Para registrar meu progresso ou conquista": 0.4,
+    "Quando escrevo algum tipo de anotação": 0.4,
+    "Escrevo quando tenho algo importante": 1.0,
+    "Escrevo quando tenho tempo": 1.0,
+}
+
+print("Selecione a frequência que você escreve no seu diário 🙃:\n")
+print("1.Todos os dias")
+print("2.Quase sempre")
+print("3.Três vezes ou menos")
+print("4.Quando me sinto triste")
+print("5.Quando quero ser criativo (a)")
+print("6.Escrevo para guardar uma memória")
+print("7.Quando quero desabafar")
+print("8.Para registrar meu progresso ou conquista")
+print("9.Quando escrevo algum tipo de anotação")
+print("10.Escrevo quando tenho algo importante")
+print("11.Escrevo quando tenho tempo")
+try:
+    option = int(input())
+    if option in range(1, 12):
+        frequency = frequence_values[list(frequence_values.keys())[option -1]]
+        print(f"\nSua pontuação é: {round(frequency * 100)}%\n")
+    else:
+        print("Resposta inválida, tente de novo 😅")
+except ValueError:
+    print("Resposta inválida, tente de novo 😅")
+
+
+def suggest_habit(frequency):
+
+    if frequency >= 1.0:
+        return "Parabéns 🥳! Você já tem um ótimo hábito de escrita. Para melhorar ainda mais, experimente incluir um registro diário de pequenas coisas que melhoraram ou pioraram seu dia 🤗"
+        
+    elif frequency >= 0.8:
+        return "Ta muito bom! Você tem o hábito de escrever com alguma muita frequência. Que tal experimentar escrever sobre seus objetivos e metas para o futuro 😌? Pode parecer clichê, mas isso pode ajudá-lo a manter o foco e a motivação."
+        
+    elif frequency >= 0.6:
+        return "Você está indo bem 🥹! Tente aumentar a frequência de suas anotações para pelo menos três vezes por semana. Além disso, você pode tentar escrever sobre suas emoções e sentimentos para ter uma melhor compreensão de você mesmo 💭."
+    
+    elif frequency >= 0.4:
+        return "Que tal tentar escrever pelo menos uma vez na semana 🤔? Escrever pode ser uma boa forma de ver sua vida de um outra perspectiva além de um diario ser um registro histórico seu, tendo todas as suas memórias"
+        
+frequency = list(frequence_values.values())[option - 1]
+suggestion = suggest_habit(frequency)
+print(f"Sugestão de hábito para você 📝: {suggestion}")
